@@ -1,15 +1,8 @@
-# Property Management System
+# Houserent: Finding Your Perfect Rental Home
 
-A full-stack MERN application for managing property listings, bookings, and user authentication.
+A full-stack web application that helps users find and manage rental properties efficiently.
 
 ## Tech Stack
-- MongoDB Atlas
-- Express.js
-- React.js
-- Node.js
-
-## Features
-- Owner & Renter Authentication
-- Property Listing
-- Booking Management
-- Secure JWT Authentication
+- Frontend: React
+- Backend: Node.js & Express
+- Database: MongoDB Atlas
