@@ -39,7 +39,7 @@ const AllProperties = () => {
 
    const getAllProperty = async () => {
       try {
-         const response = await axios.get('http://localhost:8001/api/owner/getallproperties', {
+         const response = await axios.get('https://househunt-rcrl.onrender.com/api/owner/getallproperties', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          });
          if (response.data.success) {
@@ -84,7 +84,7 @@ const AllProperties = () => {
          formData.append('additionalInfo', editingPropertyData.additionalInfo);
          formData.append('propertyImage', image);
          formData.append('isAvailable', status);
-         const res = await axios.patch(`http://localhost:8001/api/owner/updateproperty/${propertyId}`, formData, {
+         const res = await axios.patch(`https://househunt-rcrl.onrender.com/api/owner/updateproperty/${propertyId}`, formData, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          })
          if (res.data.success) {
@@ -101,7 +101,7 @@ const AllProperties = () => {
       let assure = window.confirm("are you sure to delete")
       if (assure) {
          try {
-            const response = await axios.delete(`http://localhost:8001/api/owner/deleteproperty/${propertyId}`, {
+            const response = await axios.delete(`https://househunt-rcrl.onrender.com/api/owner/deleteproperty/${propertyId}`, {
                headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
             });
 
@@ -150,7 +150,7 @@ const AllProperties = () => {
                         <TableCell align="center">{property.ownerContact}</TableCell>
                         <TableCell align="center">{property.propertyAmt}</TableCell>
                         <TableCell align="center">{property.isAvailable}</TableCell>
-                        {/* <TableCell align="center"><img style={{width: 150, height: 150}} src={`http://localhost:8001${property.propertyImage.path}`} alt="photos" /></TableCell> */}
+                        {/* <TableCell align="center"><img style={{width: 150, height: 150}} src={`https://househunt-rcrl.onrender.com${property.propertyImage.path}`} alt="photos" /></TableCell> */}
                         <TableCell align="center"><Button variant='outline-info' onClick={() => handleShow(property._id, 'Available')}>
                            Edit
                         </Button>
