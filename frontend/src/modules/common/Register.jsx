@@ -33,7 +33,7 @@ const Register = () => {
     console.log("Form submitted");
     if (!data?.name || !data?.email || !data?.password|| !data?.type ) return alert("Please fill all fields");
     else {
-      axios.post('https://househunt-rcrl.onrender.com/api/user/register', data)
+      axios.post('https://househunt-backend-cakc.onrender.com/api/user/register', data)
         .then((response) => {
           if (response.data.success) {
             message.success(response.data.message);

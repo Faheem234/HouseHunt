@@ -32,7 +32,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
 
    const getAllProperties = async () => {
       try {
-         const res = await axios.get('https://househunt-rcrl.onrender.com/api/user/getAllProperties');
+         const res = await axios.get('https://househunt-backend-cakc.onrender.com/api/user/getAllProperties');
          setAllProperties(res.data.data);
       } catch (error) {
          console.log(error);
@@ -41,7 +41,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
 
    const handleBooking = async (status, propertyId, ownerId) => {
       try {
-         await axios.post(`https://househunt-rcrl.onrender.com/api/user/bookinghandle/${propertyId}`, { userDetails, status, ownerId }, {
+         await axios.post(`https://househunt-backend-cakc.onrender.com/api/user/bookinghandle/${propertyId}`, { userDetails, status, ownerId }, {
             headers: {
                Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -111,7 +111,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
                filteredProperties.map((property) => (
                   <Card border="dark" key={property._id} style={{ width: '18rem', marginLeft: 10 }}>
                      <Card.Body>
-                        <Card.Title><img src={`https://househunt-rcrl.onrender.com${property.propertyImage[0].path}`} alt='photos' /></Card.Title>
+                        <Card.Title><img src={`https://househunt-backend-cakc.onrender.com${property.propertyImage[0].path}`} alt='photos' /></Card.Title>
                         <Card.Text>
                            <p style={{ fontWeight: 600 }} className='my-1'>Location:</p> {property.propertyAddress} <br />
                            <p style={{ fontWeight: 600 }} className='my-1'>Property Type:</p> {property.propertyType} <br />
@@ -152,7 +152,7 @@ const AllPropertiesCards = ({ loggedIn }) => {
                                                    {property.propertyImage.map((image, idx) => (
                                                       <Carousel.Item key={idx}>
                                                          <img
-                                                            src={`https://househunt-rcrl.onrender.com${image.path}`}
+                                                            src={`https://househunt-backend-cakc.onrender.com${image.path}`}
                                                             alt=""
                                                             className="d-block w-100"
                                                          />

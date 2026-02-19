@@ -29,7 +29,7 @@ const ForgotPassword = () => {
          alert("Please fill all fields")
       } else {
          if (data.password === data.confirmPassword) {
-            await axios.post("https://househunt-rcrl.onrender.com/api/user/forgotpassword", data)
+            await axios.post("https://househunt-backend-cakc.onrender.com/api/user/forgotpassword", data)
                .then((res) => {
                   if (res.data.success) {
                      alert('Your password has been changed!')

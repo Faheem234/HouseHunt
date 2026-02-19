@@ -19,7 +19,7 @@ const AllUsers = () => {
 
    const getAllUser = async () => {
       try {
-         const response = await axios.get('https://househunt-rcrl.onrender.com/api/admin/getallusers', {
+         const response = await axios.get('https://househunt-backend-cakc.onrender.com/api/admin/getallusers', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          });
 
@@ -35,7 +35,7 @@ const AllUsers = () => {
 
    const handleStatus = async (userid, status) => {
       try {
-         await axios.post('https://househunt-rcrl.onrender.com/api/admin/handlestatus', { userid, status }, {
+         await axios.post('https://househunt-backend-cakc.onrender.com/api/admin/handlestatus', { userid, status }, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          }).then((res) => {
             if (res.data.success) {
