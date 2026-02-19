@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, Nav, Button } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
-import p1 from '../../images/p1.jpg'
+//import p1 from '../../images/p1.jpg'
 import p2 from '../../images/p2.jpg'
 import p3 from '../../images/p3.jpg'
 import p4 from '../../images/p4.jpg'
@@ -40,7 +40,7 @@ const Home = () => {
 
 
          <div className='home-body'>
-            <Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel activeIndex={index} onSelect={handleSelect}> 
                <Carousel.Item>
                   <img
                      src={p2}
@@ -53,16 +53,10 @@ const Home = () => {
                      alt="Second slide"
                   />
                </Carousel.Item>
-              <Carousel.Item>
-                  <img
-                     src={p3}
-                     alt="Third slide"
-                  />
-               </Carousel.Item>
                <Carousel.Item>
                   <img
                      src={p4}
-                     alt="Fourth slide"
+                     alt="Third slide"
                   />
                </Carousel.Item>
             </Carousel>
