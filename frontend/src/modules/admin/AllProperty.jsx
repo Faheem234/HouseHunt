@@ -14,7 +14,7 @@ const AllProperty = () => {
 
    const getAllProperty = async () => {
       try {
-         const response = await axios.get('https://househunt-rcrl.onrender.com/api/admin/getallproperties', {
+         const response = await axios.get('https://househunt-backend-cakc.onrender.com/api/admin/getallproperties', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          });
 
