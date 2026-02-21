@@ -28,11 +28,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(data);
 
     if (!data?.email || !data?.password) {
       return alert("Please fill all fields");
     } else {
-      axios.post('https://househunt-rcrl.onrender.com/api/user/login', data)
+      axios.post('https://househunt-backend-cakc.onrender.com/api/user/login', data)
         .then((res) => {
           if (res.data.success) {
             message.success(res.data.message);
