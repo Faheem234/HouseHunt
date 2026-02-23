@@ -39,7 +39,7 @@ const AllProperties = () => {
 
    const getAllProperty = async () => {
       try {
-         const response = await axios.get('https://househunt-rcrl.onrender.com/api/owner/getallproperties', {
+         const response = await axios.get('https://househunt-backend-cakc.onrender.com/api/owner/getallproperties', {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          });
          if (response.data.success) {
@@ -84,7 +84,7 @@ const AllProperties = () => {
          formData.append('additionalInfo', editingPropertyData.additionalInfo);
          formData.append('propertyImage', image);
          formData.append('isAvailable', status);
-         const res = await axios.patch(`https://househunt-rcrl.onrender.com/api/owner/updateproperty/${propertyId}`, formData, {
+         const res = await axios.patch(`https://househunt-backend-cakc.onrender.com/api/owner/updateproperty/${propertyId}`, formData, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
          })
          if (res.data.success) {
@@ -101,7 +101,7 @@ const AllProperties = () => {
       let assure = window.confirm("are you sure to delete")
       if (assure) {
          try {
-            const response = await axios.delete(`https://househunt-rcrl.onrender.com/api/owner/deleteproperty/${propertyId}`, {
+            const response = await axios.delete(`https://househunt-backend-cakc.onrender.com/api/owner/deleteproperty/${propertyId}`, {
                headers: { 'Authorization': `Bearer ${localStorage.getItem("token")}` }
             });
 

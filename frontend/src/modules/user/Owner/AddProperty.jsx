@@ -50,7 +50,7 @@ function AddProperty() {
          }
       }
 
-      axios.post('https://househunt-rcrl.onrender.com/api/owner/postproperty', formData, {
+      axios.post('https://househunt-backend-cakc.onrender.com/api/owner/postproperty', formData, {
          headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
             'Content-Type': 'multipart/form-data',

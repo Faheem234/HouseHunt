@@ -24,7 +24,7 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+           {children}
         </Box>
       )}
     </div>
@@ -74,7 +74,7 @@ const RenterHome = () => {
             >
             </Nav>
             <Nav>
-              <h5 className='mx-3'>Hi {user.userData.name}</h5>
+              <h5 className='mx-3'>Hi {user?.userData?.name}</h5>
               <Link onClick={handleLogOut} to={'/'}>Log Out</Link>
             </Nav>
           </Navbar.Collapse>

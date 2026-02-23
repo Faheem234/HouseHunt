@@ -15,7 +15,7 @@ export const UserContext = createContext();
 function App() {
   const date = new Date().getFullYear();
   const [userData, setUserData] = useState();
-const [userLoggedIn, setUserLoggedIn] = useState(false)
+const [userLoggedIn, setUserLoggedIn] = useState(true)
   const getData = async () => {
     try {
       const user = await JSON.parse(localStorage.getItem("user"));
