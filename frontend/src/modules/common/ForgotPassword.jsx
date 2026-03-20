@@ -42,8 +42,10 @@ const ForgotPassword = () => {
                   if (err.response && err.response.status === 401) {
                      alert("User doesn't exist");
                   }
-                  navigate("/register");
+                  navigate("/forgotpassword");
                });
+         } else {
+            alert("Passwords don't match");
          }
 
       }

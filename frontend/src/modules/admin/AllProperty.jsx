@@ -58,7 +58,7 @@ const AllProperty = () => {
                         </TableCell>
                         <TableCell align="center">{property.ownerId}</TableCell>
                         <TableCell align="center">{property.propertyType}</TableCell>
-                        <TableCell align="center">{property.propertyType}</TableCell>
+                        <TableCell align="center">{property.propertyAdType}</TableCell>
                         <TableCell align="center">{property.propertyAddress}</TableCell>
                         <TableCell align="center">{property.ownerContact}</TableCell>
                         <TableCell align="center">{property.propertyAmt}</TableCell>

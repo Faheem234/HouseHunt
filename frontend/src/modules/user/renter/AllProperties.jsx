@@ -9,7 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const AllProperty = () => {
+const AllProperties = () => {
    const [allProperties, setAllProperties] = useState([]);
 
    const getAllProperty = async () => {
@@ -67,5 +67,5 @@ const AllProperty = () => {
    );
 };
 
-export default AllProperty;
+export default AllProperties;
 

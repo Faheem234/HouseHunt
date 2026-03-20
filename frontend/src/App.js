@@ -15,7 +15,7 @@ export const UserContext = createContext();
 function App() {
   const date = new Date().getFullYear();
   const [userData, setUserData] = useState();
-const [userLoggedIn, setUserLoggedIn] = useState(true)
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const getData = async () => {
     try {
       const user = await JSON.parse(localStorage.getItem("user"));
@@ -43,16 +43,9 @@ const [userLoggedIn, setUserLoggedIn] = useState(true)
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
-              {userLoggedIn ? (
-                <>
-                  <Route path="/adminhome" element={<AdminHome />} />
-                  <Route path="/ownerhome" element={<OwnerHome />} />
-                  <Route path="/renterhome" element={<RenterHome />} />
-
-                </>
-              ) : (
-                <Route path="/login" element={<Login />} />
-              )}
+              <Route path="/adminhome" element={<AdminHome />} />
+              <Route path="/ownerhome" element={<OwnerHome />} />
+              <Route path="/renterhome" element={<RenterHome />} />
             </Routes>
           </div>
           <footer className="bg-light text-center text-lg-start">

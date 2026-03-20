@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Container, Button, Col, Form, InputGroup, Row, FloatingLabel } from 'react-bootstrap';
 import axios from 'axios';
 import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 function AddProperty() {
+   const navigate = useNavigate();
    const [image, setImage] = useState(null);
    const [propertyDetails, setPropertyDetails] = useState({
       propertyType: 'residential',
@@ -27,45 +29,45 @@ function AddProperty() {
       }));
    };
 
-   useEffect(() => {
-      setPropertyDetails((prevDetails) => ({
-         ...prevDetails,
-         propertyImages: image,
-      }));
-   }, [image]);
+   const handleSubmit = async (e) => {
+      e.preventDefault();
 
-   const handleSubmit = (e) => {
-      e.preventDefault()
-      const formData = new FormData();
-      formData.append('propertyType', propertyDetails.propertyType);
-      formData.append('propertyAdType', propertyDetails.propertyAdType);
-      formData.append('propertyAddress', propertyDetails.propertyAddress);
-      formData.append('ownerContact', propertyDetails.ownerContact);
-      formData.append('propertyAmt', propertyDetails.propertyAmt);
-      formData.append('additionalInfo', propertyDetails.additionalInfo);
+      try {
+         const formData = new FormData();
 
-      if (image) {
-         for (let i = 0; i < image.length; i++) {
-            formData.append('propertyImages', image[i]);
-         }
-      }
+         formData.append('propertyType', propertyDetails.propertyType);
+         formData.append('propertyAdType', propertyDetails.propertyAdType);
+         formData.append('propertyAddress', propertyDetails.propertyAddress);
+         formData.append('ownerContact', propertyDetails.ownerContact);
+         formData.append('propertyAmt', propertyDetails.propertyAmt);
+         formData.append('additionalInfo', propertyDetails.additionalInfo);
 
-      axios.post('https://househunt-backend-cakc.onrender.com/api/owner/postproperty', formData, {
-         headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'multipart/form-data',
-         }
-      })
-         .then((res) => {
-            if (res.data.success) {
-               message.success(res.data.message);
-            } else {
-               message.error(res.data.message);
+         if (image) {
+            for (let i = 0; i < image.length; i++) {
+               formData.append('propertyImages', image[i]);
             }
-         })
-         .catch((error) => {
-            console.error('Error adding property:', error);
-         });
+         }
+
+         const res = await axios.post(
+            "https://househunt-backend-cakc.onrender.com/api/owner/postproperty",
+            formData,
+            {
+               headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`
+               }
+            }
+         );
+
+         console.log(res.data);
+
+         alert("Property Added Successfully ✅");
+
+         navigate("/ownerhome");
+
+      } catch (error) {
+         console.log(error);
+         alert("Error adding property ❌");
+      }
    };
 
    return (

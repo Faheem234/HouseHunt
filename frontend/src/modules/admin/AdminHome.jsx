@@ -76,7 +76,7 @@ const AdminHome = () => {
             >
             </Nav>
             <Nav>
-              <h5 className='mx-3'>Hi {user.userData.name}</h5>
+              <h5 className='mx-3'>Hi {user?.userData?.name}</h5>
               <Link onClick={handleLogOut} to={'/'}>Log Out</Link>
             </Nav>
 
